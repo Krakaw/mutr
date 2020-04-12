@@ -1,4 +1,4 @@
-package za.co.locotec.volume
+package za.co.locotec.mutr
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
