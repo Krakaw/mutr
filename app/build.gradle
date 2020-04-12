@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "za.co.locotec.volume"
+        applicationId "za.co.locotec.mutr"
         minSdkVersion 28
         targetSdkVersion 29
         versionCode 1
