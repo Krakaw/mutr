@@ -1,3 +1,4 @@
+.creds
 *.iml
 .gradle
 /local.properties
