@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +46,17 @@ class MainActivity : AppCompatActivity() {
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
 
         checkNotificationPolicyAccess(getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
+        //Hacky way to keep checking the volumes, I'm sure there's a way to catch a volume change intent of some sort.
+        val handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                setSliders()
+                handler.postDelayed(this, 5000)
+            }
+        }, 0)
+    }
+
+    private fun setSliders() {
         setVolumeSlider(R.id.musicSlider, AudioManager.STREAM_MUSIC, "\uD83C\uDFB5")
         setVolumeSlider(R.id.alarmSlider, AudioManager.STREAM_ALARM, "⏰")
         setVolumeSlider(R.id.notificationSlider, AudioManager.STREAM_NOTIFICATION, "\uD83D\uDCE5")
