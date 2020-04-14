@@ -74,8 +74,10 @@ class MainActivity : AppCompatActivity() {
         }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
+        val icon = if (getVolume(AudioManager.STREAM_MUSIC) > 0) R.drawable.speaker else R.drawable.speaker_off
+
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.speaker)
+            .setSmallIcon(icon)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setContentIntent(pendingIntent)
             .setColorized(colorized)
